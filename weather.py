@@ -29,8 +29,8 @@ def tickleAPI(query_url):
     return json.loads(data)
 
 if __name__ == "__main__":
-    user_args = userToComputer()
-    query_url = queryBuilder(user_args)
+    location = userToComputer()
+    query_url = queryBuilder(location)
     weather_data = tickleAPI(query_url)
     print(
       f"{weather_data['name']}: "
@@ -38,4 +38,3 @@ if __name__ == "__main__":
       f"{weather_data['main']['temp']}"
       "°C"
       )
-    print(query_url)
