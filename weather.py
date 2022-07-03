@@ -33,8 +33,13 @@ if __name__ == "__main__":
     query_url = queryBuilder(location)
     weather_data = tickleAPI(query_url)
     print(
-      f"{weather_data['name']}: "
+      f"{weather_data['name']} ({weather_data['coord']['lon']}, {weather_data['coord']['lat']}): "
       f"{weather_data['weather'][0]['description']} "
       f"{weather_data['main']['temp']}"
       "°C"
-      )
+    )
+    print(f"Minimum Temperature: {weather_data['main']['temp_min']}°C")
+    print(f"Maximum Temperature: {weather_data['main']['temp_max']}°C")
+    print(f"Current Pressure: {weather_data['main']['pressure']} hPa")
+    print(f"Humidity: {weather_data['main']['humidity']}%")
+    print(f"Wind Speed and Angle: {weather_data['wind']['speed']} m/s, {weather_data['wind']['deg']}°")
